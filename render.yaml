@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nurafshon-ps-backend
+    runtime: node
+    region: frankfurt
+    plan: free
+    rootDir: academia-track
+    buildCommand: npm install
+    startCommand: node server/index.js
+    healthCheckPath: /
+    envVars:
+      - key: DATA_DIR
+        value: /tmp
+      - key: ADMIN_ID
+        value: ADMIN001
+      - key: ADMIN_PASSWORD
+        value: admin123
+      - key: REQUIRE_ADMIN_PASSWORD
+        value: "true"
